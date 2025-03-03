@@ -1,6 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
 	<SelectDialog id="idCustomerGrp" title="{i18n>rowid}" rememberSelections="true" search="handleSearch" liveChange="handleSearch"
-		confirm="handleSelection" cancel="handleClose" multiSelect="true"  contentWidth="420px" items="{/results}" 
+		confirm="handleSelection" cancel="handleClose" multiSelect="false"  contentWidth="420px" items="{/results}" 
         selectionChange="handleProdChange" growing="false">
 		<StandardListItem title="{CUSTOMER_GROUP}" description="{CUSTOMER_GROUP}" type="Active"/>
 	</SelectDialog>
