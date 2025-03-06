@@ -15,8 +15,8 @@
                     <ux:ObjectPageDynamicHeaderTitle>
                         <ux:expandedHeading>
                             <HBox>
-                                <Label id="idVariantName" required="false" text="" class="Text" />
-                                <ToggleButton id="idDropDown" icon="sap-icon://slim-arrow-down" press="onDropDownPress" />
+                                <!-- <Label id="idVariantName" required="false" text="" class="Text" />
+                                <ToggleButton id="idDropDown" icon="sap-icon://slim-arrow-down" press="onDropDownPress" /> -->
                                 <!-- <Title id="_IDGenTitle1" text="{i18n>title}" class="boldText" titleAlignment="Center" /> -->
                                 <!-- <Button class="hdrBtnMarginHdr" id="_IDGenOverflowToolbarButton1" icon="sap-icon://sys-help" text="" type="Emphasized" press="onNavPress" tooltip="Help Document"/> -->
                             </HBox>
@@ -77,7 +77,7 @@
                     <ux:ObjectPageSubSection>
                     
                            
-                                <Table id="orderList" visible="true" sticky="ColumnHeaders" growingThreshold="1000" items="{path: '/'}" growing="true" growingScrollToLoad="true" itemPress="onhandlePress" mode="SingleSelectMaster" selectionChange="onhandlePress" rememberSelections="false" growingDirection="Downwards" updateFinished="onTableUpdate">
+                                <Table id="orderList" visible="true" sticky="ColumnHeaders" growingThreshold="1000" items="{path: '/'}" growing="false" growingScrollToLoad="false" itemPress="onhandlePress" mode="SingleSelectMaster" selectionChange="onhandlePress" rememberSelections="false" growingDirection="Downwards" updateFinished="onTableUpdate">
                                     <headerToolbar>
                                         <OverflowToolbar>
                                             <ToolbarSpacer/>
