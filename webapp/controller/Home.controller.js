@@ -374,7 +374,7 @@ sap.ui.define(
           return array.filter(obj => !check.has(obj[key]) && check.add(obj[key]));
         },
         CustGroup:function(){
-          var aSelectedLoc = that.oLocList.getSelectedItems()
+          var aSelectedLoc = that.oLocList.getSelectedItems();
             var aSelectedProd = that.oProdList.getSelectedItems();
             var  object = {}, finalArrya = [];
           for (var i = 0; i < aSelectedLoc.length; i++) {
@@ -626,7 +626,7 @@ sap.ui.define(
               var aSelectedLoc = that.oLocList.getSelectedItems();
             var oFilters = [];
             for (var i = 0; i < aSelectedLoc.length; i++) {
-              var object = { LOCATION_ID: aSelectedLoc[i].getTitle(), FLAG: "P" }
+              var object = { LOCATION_ID: aSelectedLoc[i].getTitle(), FLAG: "PHC" }
             }
             that.getAllProducts(object);
 
