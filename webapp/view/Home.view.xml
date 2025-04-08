@@ -12,22 +12,7 @@
         <content>
             <ux:ObjectPageLayout id="ObjectPageLayout">
                 <ux:headerTitle>
-                    <ux:ObjectPageDynamicHeaderTitle>
-                        <ux:expandedHeading>
-                            <HBox>
-                                <!-- <Label id="idVariantName" required="false" text="" class="Text" />
-                                <ToggleButton id="idDropDown" icon="sap-icon://slim-arrow-down" press="onDropDownPress" /> -->
-                                <!-- <Title id="_IDGenTitle1" text="{i18n>title}" class="boldText" titleAlignment="Center" /> -->
-                                <!-- <Button class="hdrBtnMarginHdr" id="_IDGenOverflowToolbarButton1" icon="sap-icon://sys-help" text="" type="Emphasized" press="onNavPress" tooltip="Help Document"/> -->
-                            </HBox>
-                        </ux:expandedHeading>
-                        <ux:snappedHeading>
-                            <HBox id="_IDGenFlexBox1" fitContainer="true" alignItems="Center">
-                                <Title id="_IDGenTitle2" text="{i18n>title}" class="sapUiLargeMarginEnd" />
-
-                                <Button class="hdrBtnMarginHdr1" id="_IDGenOverflowToolbarButton2" icon="sap-icon://sys-help" text="" type="Emphasized" press="onNavPress" tooltip="Help Document" />
-                            </HBox>
-                        </ux:snappedHeading>
+                    <ux:ObjectPageDynamicHeaderTitle>                       
                         <ux:navigationActions>
                             <Button class="classHdr" icon="sap-icon://sys-help" id="idNav3" press="onNavPress" type="Emphasized" tooltip="Help Document" />
                         </ux:navigationActions>
@@ -85,16 +70,16 @@
                                         </OverflowToolbar>
                                     </headerToolbar>
                                     <columns>
-                                        <Column hAlign="Begin" vAlign="Middle">
+                                        <Column hAlign="Begin" vAlign="Middle" width="10%">
                                             <Text text="Date" />
                                         </Column>
                                         <Column hAlign="Begin" vAlign="Middle">
                                             <Text text="Location" />
                                         </Column>
-                                        <Column hAlign="Begin" vAlign="Middle">
+                                        <Column hAlign="Begin" vAlign="Middle" width="12%">
                                             <Text text="Product" />
                                         </Column>
-                                        <Column hAlign="Begin" width="10%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="12%" vAlign="Middle">
                                             <Text text="Char. Num" />
                                         </Column>
                                         <Column hAlign="Begin" width="10%" vAlign="Middle">
@@ -112,16 +97,16 @@
                                         <Column hAlign="Begin" vAlign="Middle">
                                             <Text text="Customer Group" />
                                         </Column>
-                                        <Column hAlign="Begin" width="10%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="7%" vAlign="Middle">
                                             <Text text="Char. Count" />
                                         </Column>
-                                        <Column hAlign="Begin" width="15%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="8%" vAlign="Middle">
                                             <Text text="Char. Count Rate" />
                                         </Column>
-                                        <Column hAlign="Begin" width="10%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="7%" vAlign="Middle">
                                             <Text text="Group Count" />
                                         </Column>
-                                        <Column hAlign="Begin" width="10%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="7%" vAlign="Middle">
                                             <Text text="Group Count Rate" />
                                         </Column>
 
