@@ -155,9 +155,9 @@ sap.ui.define(
           this.oLocList = this._oCore.byId(
             this._valueHelpDialogLoc.getId() + "-list"
           );
-          this.oCompList = this._oCore.byId(
-            this._valueHelpDialogVers.getId() + "-list"
-          );
+          // this.oCompList = this._oCore.byId(
+          //   this._valueHelpDialogVers.getId() + "-list"
+          // );
   
           that.oList.removeSelections();
           // Calling function
@@ -262,15 +262,17 @@ sap.ui.define(
             }
   
             // Component Dialog
-          } else if (sId.includes("idChar")) {
-            if (that.byId("idloc").getTokens().length <= 0 || that.byId("prodInput").getTokens().length <= 0) {
-              MessageToast.show("Please select a Location  and Product")
-            }
-             else {
-              that._valueHelpDialogVers.open();
-            }  
-            // Structure Dialog
-          }else if(sId.includes("idCust")){
+          } 
+          // else if (sId.includes("idChar")) {
+          //   if (that.byId("idloc").getTokens().length <= 0 || that.byId("prodInput").getTokens().length <= 0) {
+          //     MessageToast.show("Please select a Location  and Product")
+          //   }
+          //    else {
+          //     that._valueHelpDialogVers.open();
+          //   }  
+          //   // Structure Dialog
+          // }
+          else if(sId.includes("idCust")){
             if (that.byId("idloc").getTokens().length <= 0 || that.byId("prodInput").getTokens().length <= 0) {
               MessageToast.show("Please select a Location  and Product")
             }
@@ -304,16 +306,17 @@ sap.ui.define(
               that.oProdList.getBinding("items").filter([]);
             }
             // Component Dialog
-          } else if (sId.includes("idChar")) {
-            that._oCore
-              .byId(this._valueHelpDialogVers.getId() + "-searchField")
-              .setValue("");
-            if (that.oCompList.getBinding("items")) {
-              that.oCompList.getBinding("items").filter([]);
-            }
+          } 
+          // else if (sId.includes("idChar")) {
+          //   that._oCore
+          //     .byId(this._valueHelpDialogVers.getId() + "-searchField")
+          //     .setValue("");
+          //   if (that.oCompList.getBinding("items")) {
+          //     that.oCompList.getBinding("items").filter([]);
+          //   }
   
-            // structure Dialog
-          }
+          //   // structure Dialog
+          // }
         },
   
         /**
@@ -420,7 +423,7 @@ sap.ui.define(
             var aSelectedLoc = oEvent.getParameter("selectedItems");
             // Removing selections of component 
             this.oProdL = that.byId("prodInput")
-            this.oComp = that.byId("idChar")
+            // this.oComp = that.byId("idChar")
             that.byId("fromDate").setEditable(false);
             that.oListtab = new JSONModel([]);
             that.byId("onTabSearch").setValue("");  
@@ -431,9 +434,9 @@ sap.ui.define(
               .removeSelections();
   
             that.oProdL.removeAllTokens();
-            that.oComp.removeAllTokens();
+            // that.oComp.removeAllTokens();
             that.oProdList.removeSelections();
-            that.oCompList.removeSelections();
+            // that.oCompList.removeSelections();
   
             if (aSelectedLoc && aSelectedLoc.length > 0) {
               that.oProd.removeAllTokens();
@@ -465,54 +468,54 @@ sap.ui.define(
             that.CustGroup();
             // Component List
           }
-          else if (sId.includes("CharaDes")) {
-            sap.ui.core.BusyIndicator.show()
-            that.oComp = that.byId("idChar");
-            that.oListtab = new JSONModel([]);
-            that.byId("onTabSearch").setValue("");
-            that.byId("orderList").setModel(that.oListtab)
-            var aSelectedComp = oEvent.getParameter("selectedItems");
-            if (aSelectedComp && aSelectedComp.length > 0) {
-              that.oComp.removeAllTokens();
-              aSelectedComp.forEach(function (oItem) {
-                that.oComp.addToken(
-                  new sap.m.Token({
-                    key: oItem.getTitle(),
-                    text: oItem.getTitle(),
-                    editable: false
-                  })
-                );
-              });  
-              var aSelectedChar = that.oCompList.getSelectedItems();
-              var dailyFullDates = [];
-              var dates = that.oCharNumData.filter(id=>id.CHAR_NUM === aSelectedChar[0].getTitle());
-              if(dates.length>0){
-              dates.forEach((el, i) => {
-                let value = el.CAL_DATE;
-                // let value1 = `${value.getFullYear()}-${(value.getMonth() + 1).toString().padStart(2, '0')}-${value.getDate().toString().padStart(2, '0')}`;
-                let obj = {};
-                obj.DATE = value;
-                obj.key = value;
-                dailyFullDates.push(obj);
-              });
-              var totalArrya = dailyFullDates.sort((a, b) => new Date(a.DATE) - new Date(b.DATE));
-              that.newDateModel.setData({ resultsCombos: totalArrya });
-              that.byId("fromDate").setModel(that.newDateModel);
-              that.byId("fromDate").setEditable(true);
-            }
-            else{
-              MessageToast.show("No dates available for selected Characteristic number")
-              that.newDateModel.setData({ resultsCombos: [] });
-              that.byId("fromDate").setModel(that.newDateModel);
-              that.byId("fromDate").setEditable(false);
-            }
-              sap.ui.core.BusyIndicator.hide()
-            } else {
-              sap.ui.core.BusyIndicator.hide()
-              that.oComp.removeAllTokens();
-            }
+          // else if (sId.includes("CharaDes")) {
+          //   sap.ui.core.BusyIndicator.show()
+          //   // that.oComp = that.byId("idChar");
+          //   that.oListtab = new JSONModel([]);
+          //   that.byId("onTabSearch").setValue("");
+          //   that.byId("orderList").setModel(that.oListtab)
+          //   var aSelectedComp = oEvent.getParameter("selectedItems");
+          //   if (aSelectedComp && aSelectedComp.length > 0) {
+          //     // that.oComp.removeAllTokens();
+          //     // aSelectedComp.forEach(function (oItem) {
+          //     //   that.oComp.addToken(
+          //     //     new sap.m.Token({
+          //     //       key: oItem.getTitle(),
+          //     //       text: oItem.getTitle(),
+          //     //       editable: false
+          //     //     })
+          //     //   );
+          //     // });  
+          //     var aSelectedChar = that.oCompList.getSelectedItems();
+          //     var dailyFullDates = [];
+          //     var dates = that.oCharNumData.filter(id=>id.CHAR_NUM === aSelectedChar[0].getTitle());
+          //     if(dates.length>0){
+          //     dates.forEach((el, i) => {
+          //       let value = el.CAL_DATE;
+          //       // let value1 = `${value.getFullYear()}-${(value.getMonth() + 1).toString().padStart(2, '0')}-${value.getDate().toString().padStart(2, '0')}`;
+          //       let obj = {};
+          //       obj.DATE = value;
+          //       obj.key = value;
+          //       dailyFullDates.push(obj);
+          //     });
+          //     var totalArrya = dailyFullDates.sort((a, b) => new Date(a.DATE) - new Date(b.DATE));
+          //     that.newDateModel.setData({ resultsCombos: totalArrya });
+          //     that.byId("fromDate").setModel(that.newDateModel);
+          //     that.byId("fromDate").setEditable(true);
+          //   }
+          //   else{
+          //     MessageToast.show("No dates available for selected Characteristic number")
+          //     that.newDateModel.setData({ resultsCombos: [] });
+          //     that.byId("fromDate").setModel(that.newDateModel);
+          //     that.byId("fromDate").setEditable(false);
+          //   }
+          //     sap.ui.core.BusyIndicator.hide()
+          //   } else {
+          //     sap.ui.core.BusyIndicator.hide()
+          //     that.oComp.removeAllTokens();
+          //   }
   
-          }
+          // }
           else if(sId.includes("idCustomerGrp")){            
             that.oComp = that.byId("idCust");
             var aSelectedComp = oEvent.getParameter("selectedItems");
@@ -536,11 +539,11 @@ sap.ui.define(
         loadCharNumData: function () {
        //   sap.ui.core.BusyIndicator.show()
           this.oProd = that.byId("prodInput");
-          this.oComp = that.byId("idChar")
+          // this.oComp = that.byId("idChar")
           that.oListtab = new JSONModel([]);
-          that.oComp.setModel(that.oListtab);
-          that.oComp.removeAllTokens()
-          that.oCompList.removeSelections();
+          // that.oComp.setModel(that.oListtab);
+          // that.oComp.removeAllTokens()
+          // that.oCompList.removeSelections();
           that.oListtab = new JSONModel([]);
           that.byId("onTabSearch").setValue("")
   
@@ -582,12 +585,12 @@ sap.ui.define(
                 if (JSON.parse(oData.getTSData).length) {
                   var dailyFullDates = [];
                   that.oCharNumData = JSON.parse(oData.getTSData);
-                  let uniqueArray1 = that.removeDuplicate(that.oCharNumData, 'CHAR_NUM');
+                  // let uniqueArray1 = that.removeDuplicate(that.oCharNumData, 'CHAR_NUM');
                   let uniqueWeekData = that.removeDuplicate(that.oCharNumData, 'CAL_DATE')
-                  that.CompModel.setData({
-                    results: uniqueArray1
-                  })
-                  that.oCompList.setModel(that.CompModel);
+                  // that.CompModel.setData({
+                  //   results: uniqueArray1
+                  // })
+                  // that.oCompList.setModel(that.CompModel);
                   uniqueWeekData.forEach((el, i) => {
                     let value = el.CAL_DATE;
                     // let value1 = `${value.getFullYear()}-${(value.getMonth() + 1).toString().padStart(2, '0')}-${value.getDate().toString().padStart(2, '0')}`;
@@ -639,7 +642,7 @@ sap.ui.define(
           that.oList.removeSelections();
           var aSelectedLoc = that.oLocList.getSelectedItems();
           var aSelectedProd = that.byId("prodInput").getTokens()[0].getText();
-          var aSelectedComp = that.oCompList.getSelectedItems();
+          // var aSelectedComp = that.oCompList.getSelectedItems();
           var aSelectedCust = that.oCustList.getSelectedItems();
   
           that.oFilters = [];
@@ -650,9 +653,9 @@ sap.ui.define(
             object.CUSTOMER_GROUP = aSelectedCust[0].getTitle();
           } 
   
-          for (var i = 0; i < aSelectedComp.length; i++) {
-            object.CHAR_NUM = aSelectedComp[0].getTitle();
-          }
+          // for (var i = 0; i < aSelectedComp.length; i++) {
+          //   object.CHAR_NUM = aSelectedComp[0].getTitle();
+          // }
           if (that.byId("fromDate").getSelectedItem()) {
             object.CAL_DATE=that.byId("fromDate").getSelectedItem().getText() ;
           }
@@ -663,6 +666,8 @@ sap.ui.define(
           this.getOwnerComponent().getModel("BModel").callFunction("/getTimeSeriesData", {
             method: "GET",
             urlParameters: {
+              Skip:0,
+              TopCount:0,
               TSDATA: JSON.stringify(finalArray)
             },
             // sap.ui.core.BusyIndicator.show()
@@ -728,7 +733,7 @@ sap.ui.define(
         getWeekDates: function () {
           var aSelectedLoc = that.oLocList.getSelectedItems()
           var aSelectedProd = that.oProdList.getSelectedItems();
-          var aSelectedComp = that.oCompList.getSelectedItems();
+          // var aSelectedComp = that.oCompList.getSelectedItems();
           // Declaration of filters
           var oFilters = [];
   
@@ -750,14 +755,14 @@ sap.ui.define(
             oFilters.push(sFilter);
           }
   
-          for (var i = 0; i < aSelectedComp.length; i++) {
-            sFilter = new sap.ui.model.Filter({
-              path: "CHAR_NUM",
-              operator: sap.ui.model.FilterOperator.EQ,
-              value1: aSelectedComp[i].getTitle(),
-            });
-            oFilters.push(sFilter);
-          }
+          // for (var i = 0; i < aSelectedComp.length; i++) {
+          //   sFilter = new sap.ui.model.Filter({
+          //     path: "CHAR_NUM",
+          //     operator: sap.ui.model.FilterOperator.EQ,
+          //     value1: aSelectedComp[i].getTitle(),
+          //   });
+          //   oFilters.push(sFilter);
+          // }
           // if(aSelectedComp.length===0){
           this.getOwnerComponent().getModel("BModel").read("/getHistoryVCDaily", {
             filters: oFilters,
@@ -1029,13 +1034,13 @@ sap.ui.define(
                 that.CompModel.setData({
                   results: uniqueArray1
                 })
-                that.oCompList.setModel(that.CompModel);
+                // that.oCompList.setModel(that.CompModel);
                 for (var i = 0; i < compTokens.length; i++) {
-                  for (var k = 0; k < that.oCompList.getItems().length; k++) {
-                    if (that.oCompList.getItems()[k].getTitle() === compTokens[i].getText()) {
-                      that.oCompList.getItems()[k].setSelected(true);
-                    }
-                  }
+                  // for (var k = 0; k < that.oCompList.getItems().length; k++) {
+                  //   if (that.oCompList.getItems()[k].getTitle() === compTokens[i].getText()) {
+                  //     that.oCompList.getItems()[k].setSelected(true);
+                  //   }
+                  // }
                 }
   
                 that.getWeekDates();
@@ -1109,11 +1114,11 @@ sap.ui.define(
         onResetData: function () {
           that.byId("idloc").removeAllTokens()
           that.byId("prodInput").removeAllTokens();
-          that.byId("idChar").removeAllTokens();
+          // that.byId("idChar").removeAllTokens();
           that.byId("idCust").removeAllTokens();
           that.oLocList.removeSelections();
           that.oProdList.removeSelections();
-          that.oCompList.removeSelections();
+          // that.oCompList.removeSelections();
           that.oCustList.removeSelections();
           var oEmpModel = new sap.ui.model.json.JSONModel([]);
           that.byId("orderList").setModel(oEmpModel);

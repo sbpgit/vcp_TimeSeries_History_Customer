@@ -32,10 +32,10 @@
                             <Label text="Product" required="true" />
                             <MultiInput id="prodInput" width = "200px"   placeholder="Product" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
                         </VBox>
-                        <VBox class="hbox1">
+                        <!-- <VBox class="hbox1">
                             <Label text="Characteristic Number" />
                             <MultiInput id="idChar" width = "200px"  placeholder="Characteristic Number" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
-                        </VBox>
+                        </VBox> -->
 
                             <VBox class="hbox1">
                             <Label text=" Customer Group" />
@@ -79,7 +79,7 @@
                                         <Column hAlign="Begin" vAlign="Middle" width="12%">
                                             <Text text="Product" />
                                         </Column>
-                                        <Column hAlign="Begin" width="12%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="12%" vAlign="Middle" visible="false">
                                             <Text text="Char. Num" />
                                         </Column>
                                         <Column hAlign="Begin" width="10%" vAlign="Middle">
@@ -94,13 +94,13 @@
                                         <Column hAlign="Begin" vAlign="Middle">
                                             <Text text="Row ID" />
                                         </Column>
-                                        <Column hAlign="Begin" vAlign="Middle">
+                                        <Column hAlign="Begin" vAlign="Middle" >
                                             <Text text="Customer Group" />
                                         </Column>
-                                        <Column hAlign="Begin" width="7%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="7%" vAlign="Middle" visible="false">
                                             <Text text="Char. Count" />
                                         </Column>
-                                        <Column hAlign="Begin" width="8%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="8%" vAlign="Middle" visible="false">
                                             <Text text="Char. Count Rate" />
                                         </Column>
                                         <Column hAlign="Begin" width="7%" vAlign="Middle">
