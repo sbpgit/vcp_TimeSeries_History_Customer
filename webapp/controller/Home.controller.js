@@ -658,7 +658,7 @@ sap.ui.define(
           //   object.CHAR_NUM = aSelectedComp[0].getTitle();
           // }
           if (that.byId("fromDate").getSelectedItem()) {
-            object.CAL_DATE=that.byId("fromDate").getSelectedItem().getText() ;
+            object.WEEK_DATE=that.byId("fromDate").getSelectedItem().getText() ;
           }
           var Flag = "HC";
         object.FLAG = Flag;
@@ -674,7 +674,7 @@ sap.ui.define(
             // sap.ui.core.BusyIndicator.show()
             success: function (oData) {
               sap.ui.core.BusyIndicator.show();
-              if (JSON.parse(oData.getTimeSeriesData).length) {
+              if (Object.keys(oData).length) {
               var totalData = JSON.parse(oData.getTimeSeriesData);
               if (that.topCount == totalData.length) {
                 that.skip += parseInt(that.topCount);
