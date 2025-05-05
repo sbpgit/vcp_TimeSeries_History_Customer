@@ -197,6 +197,9 @@ sap.ui.define(
             
             },
           });
+          that.skip = 0;
+          that.topCount=50000;
+        that.TSData = [];
         },
         removeDuplicate: function (array, key) {
           var check = new Set();
@@ -568,7 +571,7 @@ sap.ui.define(
             // Declaration of filters
             var oFilters = [], object = {}, finalArrya = [];
           for (var i = 0; i < aSelectedLoc.length; i++) {
-            object = { LOCATION_ID: aSelectedLoc[i].getTitle(), FLAG: 'CC' }
+            object = { LOCATION_ID: aSelectedLoc[i].getTitle(), FLAG: 'DC' }
           }
 
           for (var i = 0; i < aSelectedProd.length; i++) {
@@ -607,7 +610,7 @@ sap.ui.define(
                 }
                 else {
                   sap.ui.core.BusyIndicator.hide()
-                  MessageToast.show("No Characteristics available for the selected Location/Product")
+                  MessageToast.show("No data available for the selected Location/Product")
                 }
               },
               error: function (oData, error) {
@@ -635,8 +638,6 @@ sap.ui.define(
           sap.ui.core.BusyIndicator.show()
           var oList = this.getView().byId("orderList");
           oList.setModel(new sap.ui.model.json.JSONModel());
-          this.skip = 0;
-          that.topCount = 100;
           var object = {}, finalArray = [];
           oList.setProperty("growingThreshold", 20);
           that.oList.removeSelections();
@@ -666,17 +667,25 @@ sap.ui.define(
           this.getOwnerComponent().getModel("BModel").callFunction("/getTimeSeriesData", {
             method: "GET",
             urlParameters: {
-              Skip:0,
-              TopCount:0,
+              Skip:that.skip,
+              TopCount:that.topCount,
               TSDATA: JSON.stringify(finalArray)
             },
             // sap.ui.core.BusyIndicator.show()
             success: function (oData) {
-              sap.ui.core.BusyIndicator.show()
+              sap.ui.core.BusyIndicator.show();
               if (JSON.parse(oData.getTimeSeriesData).length) {
-              //   sap.ui.core.BusyIndicator.hide()
-              that.oWeekly = JSON.parse(oData.getTimeSeriesData);
-  
+              var totalData = JSON.parse(oData.getTimeSeriesData);
+              if (that.topCount == totalData.length) {
+                that.skip += parseInt(that.topCount);
+                that.TSData = that.TSData.concat(totalData);
+                that.onGetData();
+              }
+              else{
+              //   sap.ui.core.BusyIndicator.hide()              
+              that.skip = 0;
+              that.oWeekly = that.TSData.concat(JSON.parse(oData.getTimeSeriesData));
+              that.TSData=[];
               for (var i = 0; i < that.oWeekly.length; i++) {
                 var dateString = that.oWeekly[i].CAL_DATE;
   
@@ -707,6 +716,7 @@ sap.ui.define(
                 that.oList.setModel(that.oListModel);              
                 sap.ui.core.BusyIndicator.hide()
               }
+            }
             }
             else {
               sap.ui.core.BusyIndicator.hide();
