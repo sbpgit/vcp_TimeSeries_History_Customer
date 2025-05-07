@@ -70,19 +70,19 @@
                                         </OverflowToolbar>
                                     </headerToolbar>
                                     <columns>
-                                        <Column hAlign="Begin" vAlign="Middle" width="10%">
+                                        <Column hAlign="Begin" vAlign="Middle" width="auto">
                                             <Text text="Date" />
                                         </Column>
                                         <Column hAlign="Begin" vAlign="Middle">
                                             <Text text="Location" />
                                         </Column>
-                                        <Column hAlign="Begin" vAlign="Middle" width="12%">
+                                        <Column hAlign="Begin" vAlign="Middle" width="auto">
                                             <Text text="Product" />
                                         </Column>
-                                        <Column hAlign="Begin" width="12%" vAlign="Middle" visible="false">
+                                        <Column hAlign="Begin" width="auto" vAlign="Middle" visible="false">
                                             <Text text="Char. Num" />
                                         </Column>
-                                        <Column hAlign="Begin" width="10%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="auto" vAlign="Middle" visible="false">
                                             <Text text="Char. Value" />
                                         </Column>
                                         <Column hAlign="Begin" vAlign="Middle">
@@ -91,22 +91,22 @@
                                         <Column hAlign="Begin" vAlign="Middle">
                                             <Text text="Group ID" />
                                         </Column>
-                                        <Column hAlign="Begin" vAlign="Middle">
+                                        <Column hAlign="Begin" vAlign="Middle" visible="false">
                                             <Text text="Row ID" />
                                         </Column>
                                         <Column hAlign="Begin" vAlign="Middle" >
                                             <Text text="Customer Group" />
                                         </Column>
-                                        <Column hAlign="Begin" width="7%" vAlign="Middle" visible="false">
+                                        <Column hAlign="Begin" width="auto" vAlign="Middle" visible="false">
                                             <Text text="Char. Count" />
                                         </Column>
-                                        <Column hAlign="Begin" width="8%" vAlign="Middle" visible="false">
+                                        <Column hAlign="Begin" width="auto" vAlign="Middle" visible="false">
                                             <Text text="Char. Count Rate" />
                                         </Column>
-                                        <Column hAlign="Begin" width="7%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="auto" vAlign="Middle">
                                             <Text text="Group Count" />
                                         </Column>
-                                        <Column hAlign="Begin" width="7%" vAlign="Middle">
+                                        <Column hAlign="Begin" width="auto" vAlign="Middle">
                                             <Text text="Group Count Rate" />
                                         </Column>
 
