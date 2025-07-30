@@ -25,8 +25,8 @@
                             <SearchField search="onSearch" liveChange="onSearch" width="250px" id="onTabSearch"  />
                         </VBox>
                         <VBox  class="hbox1">
-                            <Label text="Location" required="true" />
-                            <MultiInput id="idloc" width = "200px" placeholder="Location" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
+                            <Label text="Demand Location" required="true" />
+                            <MultiInput id="idloc" width = "200px" placeholder="Demand Location" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
                         </VBox>
                         <VBox class="hbox1">
                             <Label text="Product" required="true" />
@@ -74,7 +74,7 @@
                                             <Text text="Date" />
                                         </Column>
                                         <Column hAlign="Begin" vAlign="Middle">
-                                            <Text text="Location" />
+                                            <Text text="Demand Location" />
                                         </Column>
                                         <Column hAlign="Begin" vAlign="Middle" width="auto">
                                             <Text text="Product" />
