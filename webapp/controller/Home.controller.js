@@ -131,10 +131,10 @@ sap.ui.define(
         _onPatternMatched: function () {
           that = this;
           that.deletedArray = [];
-          that.oList = this.byId("orderList");
-          this.oLoc = this.byId("idloc");
-          this.oProd = this.byId("prodInput");
-          that.oCustList = that.byId("idCust");  
+          that.oList = this.byId("orderListTHC");
+          this.oLoc = this.byId("idlocTHC");
+          this.oProd = this.byId("prodInputTHC");
+          that.oCustList = that.byId("idCustTHC");  
           that._valueHelpDialogProd.setTitleAlignment("Center");
           that._valueHelpDialogLoc.setTitleAlignment("Center");
           that._valueHelpDialogVers.setTitleAlignment("Center");
@@ -230,7 +230,7 @@ sap.ui.define(
                   that.oCustModel.setData({
                     results:that.CustData
                   })
-                  sap.ui.getCore().byId("idCustomerGrp").setModel(that.oCustModel)
+                  sap.ui.getCore().byId("idCustomerGrpTHC").setModel(that.oCustModel)
                   sap.ui.core.BusyIndicator.hide()
                 }
                 else {
@@ -258,7 +258,7 @@ sap.ui.define(
             that._valueHelpDialogLoc.open();
             // Prod Dialog
           } else if (sId.includes("prod")) {
-            if (that.byId("idloc").getTokens().length <= 0) {
+            if (that.byId("idlocTHC").getTokens().length <= 0) {
               MessageToast.show("Please select a Location")
             } else {
               that._valueHelpDialogProd.open();
@@ -267,7 +267,7 @@ sap.ui.define(
             // Component Dialog
           } 
           // else if (sId.includes("idChar")) {
-          //   if (that.byId("idloc").getTokens().length <= 0 || that.byId("prodInput").getTokens().length <= 0) {
+          //   if (that.byId("idlocTHC").getTokens().length <= 0 || that.byId("prodInputTHC").getTokens().length <= 0) {
           //     MessageToast.show("Please select a Location  and Product")
           //   }
           //    else {
@@ -275,8 +275,8 @@ sap.ui.define(
           //   }  
           //   // Structure Dialog
           // }
-          else if(sId.includes("idCust")){
-            if (that.byId("idloc").getTokens().length <= 0 || that.byId("prodInput").getTokens().length <= 0) {
+          else if(sId.includes("idCustTHC")){
+            if (that.byId("idlocTHC").getTokens().length <= 0 || that.byId("prodInputTHC").getTokens().length <= 0) {
               MessageToast.show("Please select a Location  and Product")
             }
              else {
@@ -405,7 +405,7 @@ sap.ui.define(
                 })
               );
             }
-            sap.ui.getCore().byId("varNameList").getBinding("items").filter(oFilters);
+            sap.ui.getCore().byId("varNameListTHC").getBinding("items").filter(oFilters);
           }
         },
   
@@ -422,15 +422,15 @@ sap.ui.define(
   
           if (sId.includes("Loc")) {
             sap.ui.core.BusyIndicator.show()
-            this.oProd = that.byId("idloc");
+            this.oProd = that.byId("idlocTHC");
             var aSelectedLoc = oEvent.getParameter("selectedItems");
             // Removing selections of component 
-            this.oProdL = that.byId("prodInput")
+            this.oProdL = that.byId("prodInputTHC")
             // this.oComp = that.byId("idChar")
-            that.byId("fromDate").setEditable(false);
+            that.byId("fromDateTHC").setEditable(false);
             that.oListtab = new JSONModel([]);
-            that.byId("onTabSearch").setValue("");  
-            that.byId("orderList").setModel(that.oListtab)
+            that.byId("onTabSearchTHC").setValue("");  
+            that.byId("orderListTHC").setModel(that.oListtab)
             this._valueHelpDialogVers
               .getAggregation("_dialog")
               .getContent()[1]
@@ -471,12 +471,12 @@ sap.ui.define(
             that.CustGroup();
             // Component List
           }
-          // else if (sId.includes("CharaDes")) {
+          // else if (sId.includes("CharaDesTHC")) {
           //   sap.ui.core.BusyIndicator.show()
           //   // that.oComp = that.byId("idChar");
           //   that.oListtab = new JSONModel([]);
-          //   that.byId("onTabSearch").setValue("");
-          //   that.byId("orderList").setModel(that.oListtab)
+          //   that.byId("onTabSearchTHC").setValue("");
+          //   that.byId("orderListTHC").setModel(that.oListtab)
           //   var aSelectedComp = oEvent.getParameter("selectedItems");
           //   if (aSelectedComp && aSelectedComp.length > 0) {
           //     // that.oComp.removeAllTokens();
@@ -503,14 +503,14 @@ sap.ui.define(
           //     });
           //     var totalArrya = dailyFullDates.sort((a, b) => new Date(a.DATE) - new Date(b.DATE));
           //     that.newDateModel.setData({ resultsCombos: totalArrya });
-          //     that.byId("fromDate").setModel(that.newDateModel);
-          //     that.byId("fromDate").setEditable(true);
+          //     that.byId("fromDateTHC").setModel(that.newDateModel);
+          //     that.byId("fromDateTHC").setEditable(true);
           //   }
           //   else{
           //     MessageToast.show("No dates available for selected Characteristic number")
           //     that.newDateModel.setData({ resultsCombos: [] });
-          //     that.byId("fromDate").setModel(that.newDateModel);
-          //     that.byId("fromDate").setEditable(false);
+          //     that.byId("fromDateTHC").setModel(that.newDateModel);
+          //     that.byId("fromDateTHC").setEditable(false);
           //   }
           //     sap.ui.core.BusyIndicator.hide()
           //   } else {
@@ -519,8 +519,8 @@ sap.ui.define(
           //   }
   
           // }
-          else if(sId.includes("idCustomerGrp")){            
-            that.oComp = that.byId("idCust");
+          else if(sId.includes("idCustomerGrpTHC")){            
+            that.oComp = that.byId("idCustTHC");
             var aSelectedComp = oEvent.getParameter("selectedItems");
             if (aSelectedComp && aSelectedComp.length > 0) {
               that.oComp.removeAllTokens();
@@ -541,16 +541,16 @@ sap.ui.define(
   
         loadCharNumData: function () {
        //   sap.ui.core.BusyIndicator.show()
-          this.oProd = that.byId("prodInput");
+          this.oProd = that.byId("prodInputTHC");
           // this.oComp = that.byId("idChar")
           that.oListtab = new JSONModel([]);
           // that.oComp.setModel(that.oListtab);
           // that.oComp.removeAllTokens()
           // that.oCompList.removeSelections();
           that.oListtab = new JSONModel([]);
-          that.byId("onTabSearch").setValue("")
+          that.byId("onTabSearchTHC").setValue("")
   
-          that.byId("orderList").setModel(that.oListtab);
+          that.byId("orderListTHC").setModel(that.oListtab);
           var aSelectedProd = that.oSelectedProd //oEvent.getParameter("selectedItems");
           // Removing selections of component   
           if (aSelectedProd && aSelectedProd.length > 0) {
@@ -604,8 +604,8 @@ sap.ui.define(
                   });
                   var totalArrya = dailyFullDates.sort((a, b) => new Date(a.DATE) - new Date(b.DATE));
                   that.newDateModel.setData({ resultsCombos: totalArrya });
-                  that.byId("fromDate").setModel(that.newDateModel);
-                  that.byId("fromDate").setEditable(true);
+                  that.byId("fromDateTHC").setModel(that.newDateModel);
+                  that.byId("fromDateTHC").setEditable(true);
                   sap.ui.core.BusyIndicator.hide()
                 }
                 else {
@@ -631,18 +631,18 @@ sap.ui.define(
          */
   
         onGetData: function () {
-          if (that.byId("idloc").getTokens.length <= 0 && that.byId("prodInput").getTokens().length <= 0) {
+          if (that.byId("idlocTHC").getTokens.length <= 0 && that.byId("prodInputTHC").getTokens().length <= 0) {
             MessageToast.show("Please select Location and Product ")
             return false
           }
           sap.ui.core.BusyIndicator.show()
-          var oList = this.getView().byId("orderList");
+          var oList = this.getView().byId("orderListTHC");
           oList.setModel(new sap.ui.model.json.JSONModel());
           var object = {}, finalArray = [];
           oList.setProperty("growingThreshold", 20);
           that.oList.removeSelections();
           var aSelectedLoc = that.oLocList.getSelectedItems();
-          var aSelectedProd = that.byId("prodInput").getTokens()[0].getText();
+          var aSelectedProd = that.byId("prodInputTHC").getTokens()[0].getText();
           // var aSelectedComp = that.oCompList.getSelectedItems();
           var aSelectedCust = that.oCustList.getSelectedItems();
   
@@ -657,8 +657,8 @@ sap.ui.define(
           // for (var i = 0; i < aSelectedComp.length; i++) {
           //   object.CHAR_NUM = aSelectedComp[0].getTitle();
           // }
-          if (that.byId("fromDate").getSelectedItem()) {
-            object.WEEK_DATE=that.byId("fromDate").getSelectedItem().getText() ;
+          if (that.byId("fromDateTHC").getSelectedItem()) {
+            object.WEEK_DATE=that.byId("fromDateTHC").getSelectedItem().getText() ;
           }
           var Flag = "HC";
         object.FLAG = Flag;
@@ -733,7 +733,7 @@ sap.ui.define(
         },
         onSearch: function (oEvent) {
           var TFilter = []
-          var stnlist = that.getView().byId("orderList")
+          var stnlist = that.getView().byId("orderListTHC")
           var oItemBind = stnlist.getBinding("items")
           var sValue = oEvent.getSource().getValue();
           var NewFilter = new sap.ui.model.Filter("CHAR_NUM", sap.ui.model.FilterOperator.Contains, sValue)
@@ -807,8 +807,8 @@ sap.ui.define(
                 var totalArrya = weeklFullDates;
               }
               that.newDateModel.setData({ resultsCombos: totalArrya });
-              that.byId("fromDate").setModel(that.newDateModel);
-              that.byId("fromDate").setEditable(true);
+              that.byId("fromDateTHC").setModel(that.newDateModel);
+              that.byId("fromDateTHC").setEditable(true);
               sap.ui.core.BusyIndicator.hide()
             },
             error: function (oData, error) {
@@ -823,7 +823,7 @@ sap.ui.define(
         },
         createColumnConfig: function (oData) {
           var aCols = [];
-          var col = that.getView().byId("orderList").getColumns();
+          var col = that.getView().byId("orderListTHC").getColumns();
           if (col[0].getVisible(true)) {
             aCols.push({
               label: "Date",
@@ -918,12 +918,12 @@ sap.ui.define(
         onDownLoadPress: function () {
           var aCols, oRowBinding, oSettings, oSheet, oTable;
           if (!this._oTable) {
-            this._oTable = that.getView().byId("orderList");
+            this._oTable = that.getView().byId("orderListTHC");
           }
           oTable = this._oTable;
           var data = oTable.getModel().getData();
         if (data.length > 0) {
-          var searchData = that.byId("onTabSearch").getValue();
+          var searchData = that.byId("onTabSearchTHC").getValue();
           if (searchData) {
             data = data.filter(row => row.CHAR_NUM.toString().includes(searchData));
           }
@@ -979,7 +979,7 @@ sap.ui.define(
          * Called when 'Close/Cancel' button in any dialog is pressed.
          */
         handleProfileClose: function () {
-          that.byId("orderList").removeSelections();
+          that.byId("orderListTHC").removeSelections();
           sap.ui.getCore().byId("idProfSearch").setValue();
           if (that.oProfileList.getBinding("items")) {
             that.oProfileList.getBinding("items").filter([]);
@@ -1077,16 +1077,16 @@ sap.ui.define(
           var uniqueNames = that.oGModel.getProperty("/viewNames");
           for (var i = 0; i < uniqueNames.length; i++) {
             if (sQuery === uniqueNames[i].VARIANTNAME) {
-              sap.ui.getCore().byId("idInput").setValueState("Error");
+              sap.ui.getCore().byId("idInputTHC").setValueState("Error");
               break;
             }
             else {
-              sap.ui.getCore().byId("idInput").setValueState("None");
-              sap.ui.getCore().byId("idSaveBtn").setEnabled(true);
+              sap.ui.getCore().byId("idInputTHC").setValueState("None");
+              sap.ui.getCore().byId("idSaveBtnTHC").setEnabled(true);
             }
           }
-          if (sap.ui.getCore().byId("idInput").getValueState() === "Error") {
-            sap.ui.getCore().byId("idSaveBtn").setEnabled(false);
+          if (sap.ui.getCore().byId("idInputTHC").getValueState() === "Error") {
+            sap.ui.getCore().byId("idSaveBtnTHC").setEnabled(false);
           }
         },
         
@@ -1122,21 +1122,21 @@ sap.ui.define(
          */
         //Function to reset
         onResetData: function () {
-          that.byId("idloc").removeAllTokens()
-          that.byId("prodInput").removeAllTokens();
+          that.byId("idlocTHC").removeAllTokens()
+          that.byId("prodInputTHC").removeAllTokens();
           // that.byId("idChar").removeAllTokens();
-          that.byId("idCust").removeAllTokens();
+          that.byId("idCustTHC").removeAllTokens();
           that.oLocList.removeSelections();
           that.oProdList.removeSelections();
           // that.oCompList.removeSelections();
           that.oCustList.removeSelections();
           var oEmpModel = new sap.ui.model.json.JSONModel([]);
-          that.byId("orderList").setModel(oEmpModel);
+          that.byId("orderListTHC").setModel(oEmpModel);
           // that.byId("idIconTabBar").setVisible(false);
           // that.byId("idIconTabBar").setSelectedKey("Weekly")
-          that.byId("onTabSearch").setValue("");
-          that.byId("fromDate").setModel(oEmpModel);
-          that.byId("fromDate").setEditable(false);
+          that.byId("onTabSearchTHC").setValue("");
+          that.byId("fromDateTHC").setModel(oEmpModel);
+          that.byId("fromDateTHC").setEditable(false);
         },
         getAllProducts: function (object) {
           that.productsData = [];

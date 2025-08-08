@@ -2,7 +2,7 @@
 	xmlns="sap.m"
 	xmlns:core="sap.ui.core">
 	<Popover
-		id="myPopover"
+		id="myPopoverTHC"
 		title="My Views"
 		class="sapUiResponsivePadding--header sapUiResponsivePadding--footer pop"
 		placement="Bottom"
@@ -11,11 +11,11 @@
 			<OverflowToolbar >
 				<ToolbarSpacer />
 				<Button	id="idSave" text="Save" press="onSave" visible="false" />
-                <Button	id="idSaveAs" text="Save As" press="onVariantSave" type="Emphasized" />
-                <Button	id="idManage" text="Manage" press="onManageOpen" />
+                <Button	id="idSaveTHC" text="Save As" press="onVariantSave" type="Emphasized" />
+                <Button	id="idManageTHC" text="Manage" press="onManageOpen" />
 			</OverflowToolbar>
 		</footer>
-		<List id="idMatList"
+		<List id="idMatListTHC"
 				items="{path: '/items1'}" mode="SingleSelectMaster" selectionChange="handleSelectPress" showSeparators="None"  >
 		<StandardListItem type="Active" 
 			title="{VARIANTNAME}"

@@ -8,13 +8,13 @@
     xmlns:l="sap.ui.layout"
     xmlns:html="http://www.w3.org/1999/xhtml"
     xmlns:t="sap.ui.table">
-    <Page id="_IDGenPage1" showHeader="false" showFooter="true" enableScrolling="false">
+    <Page id="_IDGenPage1tTHC" showHeader="false" showFooter="true" enableScrolling="false">
         <content>
-            <ux:ObjectPageLayout id="ObjectPageLayout">
+            <ux:ObjectPageLayout id="ObjectPageLayoutTHC">
                 <ux:headerTitle>
                     <ux:ObjectPageDynamicHeaderTitle>                       
                         <ux:navigationActions>
-                            <Button class="classHdr" icon="sap-icon://sys-help" id="idNav3" press="onNavPress" type="Emphasized" tooltip="Help Document" />
+                            <Button class="classHdr" icon="sap-icon://sys-help" id="idNav3THC" press="onNavPress" type="Emphasized" tooltip="Help Document" />
                         </ux:navigationActions>
                     </ux:ObjectPageDynamicHeaderTitle>
                 </ux:headerTitle>
@@ -22,15 +22,15 @@
                     <HBox>
                         <VBox class="hbox1" >
                             <Label text="" />
-                            <SearchField search="onSearch" liveChange="onSearch" width="250px" id="onTabSearch"  />
+                            <SearchField search="onSearch" liveChange="onSearch" width="250px" id="onTabSearchTHC"  />
                         </VBox>
                         <VBox  class="hbox1">
                             <Label text="Demand Location" required="true" />
-                            <MultiInput id="idloc" width = "200px" placeholder="Demand Location" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
+                            <MultiInput id="idlocTHC" width = "200px" placeholder="Demand Location" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
                         </VBox>
                         <VBox class="hbox1">
                             <Label text="Product" required="true" />
-                            <MultiInput id="prodInput" width = "200px"   placeholder="Product" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
+                            <MultiInput id="prodInputTHC" width = "200px"   placeholder="Product" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
                         </VBox>
                         <!-- <VBox class="hbox1">
                             <Label text="Characteristic Number" />
@@ -39,12 +39,12 @@
 
                             <VBox class="hbox1">
                             <Label text=" Customer Group" />
-                            <MultiInput id="idCust" width = "200px"  placeholder="Customer Group" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
+                            <MultiInput id="idCustTHC" width = "200px"  placeholder="Customer Group" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" />
                         </VBox>
-                        <VBox id="_IDGenVBox5" class="hbox1">
+                        <VBox id="_IDGenVBox5THC" class="hbox1">
                             <Label id="_IDGenLabel5" text="Week Date" />
-                            <ComboBox id="fromDate"  width = "200px" placeholder="Select Date" items="{path:'/resultsCombos'}" change="handleDateChange"  editable="false">
-                                <core:Item id="_IDGenItem1" key="{key}" text="{DATE}" />
+                            <ComboBox id="fromDateTHC"  width = "200px" placeholder="Select Date" items="{path:'/resultsCombos'}" change="handleDateChange"  editable="false">
+                                <core:Item id="_IDGenItem1THC" key="{key}" text="{DATE}" />
                             </ComboBox>
                         </VBox>
                         <VBox class="hbox1">
@@ -62,11 +62,11 @@
                     <ux:ObjectPageSubSection>
                     
                            
-                                <Table id="orderList" visible="true" sticky="ColumnHeaders" growingThreshold="1000" items="{path: '/'}" growing="false" growingScrollToLoad="false" itemPress="onhandlePress" mode="SingleSelectMaster" selectionChange="onhandlePress" rememberSelections="false" growingDirection="Downwards" updateFinished="onTableUpdate">
+                                <Table id="orderListTHC" visible="true" sticky="ColumnHeaders" growingThreshold="1000" items="{path: '/'}" growing="false" growingScrollToLoad="false" itemPress="onhandlePress" mode="SingleSelectMaster" selectionChange="onhandlePress" rememberSelections="false" growingDirection="Downwards" updateFinished="onTableUpdate">
                                     <headerToolbar>
                                         <OverflowToolbar>
                                             <ToolbarSpacer/>
-                                            <Button id="idDownload" icon="" text="Download" press="onDownLoadPress"/>
+                                            <Button id="idDownloadTHC" icon="" text="Download" press="onDownLoadPress"/>
                                         </OverflowToolbar>
                                     </headerToolbar>
                                     <columns>
